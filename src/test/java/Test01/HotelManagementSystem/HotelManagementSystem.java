@@ -23,18 +23,7 @@ public class HotelManagementSystem {
 
     public void reserve() {
         System.out.println("请输入预定房间号：");
-        String inputNumber = scanner.next();
-        int number = 0;
-        if (isInteger(inputNumber)) {
-            number = Integer.parseInt(inputNumber);
-        } else {
-            System.out.println("请输入正确的房间号");
-            reserve();
-        }
-        if (number / 100 < 1 || number / 100 > 3 || number % 100 == 0 || number % 100 > 10) {
-            System.out.println("房间号不存在，请输入正确的房间号");
-            reserve();
-        }
+        int number = check();
         Room room = hotel.getRooms()[number / 100 - 1][number % 100 - 1];
         if (room.isEmpty()) {
             room.setEmpty(false);
@@ -60,11 +49,7 @@ public class HotelManagementSystem {
 
     public void checkOut() {
         System.out.println("请输入退房房间号：");
-        int number = scanner.nextInt();
-        if (number / 100 < 1 || number / 100 > 3 || number % 100 == 0 || number % 100 > 10) {
-            System.out.println("房间号不存在，请输入正确的房间号");
-            reserve();
-        }
+        int number = check();
         Room room = hotel.getRooms()[number / 100 - 1][number % 100 - 1];
         if (!room.isEmpty()) {
             room.setEmpty(true);
@@ -105,7 +90,29 @@ public class HotelManagementSystem {
         this.hotel = hotel;
     }
 
-    public boolean isInteger(String str) {
+    public int check() {
+        int number;
+        while (true) {
+            String str = scanner.next();
+            if (isInteger(str)) {
+                number = Integer.parseInt(str);
+                break;
+            } else {
+                System.out.println("输入有误，请重新输入: ");
+            }
+        }
+
+        while (true) {
+            if (number / 100 < 1 || number / 100 > 3 || number % 100 == 0 || number % 100 > 10) {
+                System.out.println("房间号不存在，请输入正确的房间号");
+            } else {
+                break;
+            }
+        }
+        return number;
+    }
+
+    public static boolean isInteger(String str) {
         try {
             Integer.parseInt(str);
             return true;

@@ -1,3 +1,4 @@
+package Package00;
 
 public class No7MethodTest {
     public static void main(String[] args) {

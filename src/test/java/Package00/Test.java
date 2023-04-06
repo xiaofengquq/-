@@ -1,3 +1,5 @@
+package Package00;
+
 public class Test {
     public static void main(String[] args) {
         BooleanTest(false, true);

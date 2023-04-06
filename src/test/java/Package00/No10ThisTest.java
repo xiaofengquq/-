@@ -1,3 +1,5 @@
+package Package00;
+
 public class No10ThisTest {
     public static void main(String[] args) {
         new No10ThisTest().run();
@@ -10,7 +12,7 @@ public class No10ThisTest {
     }
 
     public void test() {
-        System.out.println("Test worked");
+        System.out.println("Package00.Test worked");
     }
 
     public void run() {

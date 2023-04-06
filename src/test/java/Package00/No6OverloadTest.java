@@ -1,3 +1,5 @@
+package Package00;
+
 public class No6OverloadTest {
     /**
      * 回顾java语言当中方法的重载:

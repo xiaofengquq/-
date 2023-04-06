@@ -1,3 +1,5 @@
+package Package00;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.Header;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -14,7 +16,6 @@ import org.apache.http.ssl.SSLContexts;
 import org.apache.http.util.EntityUtils;
 
 import javax.net.ssl.SSLContext;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 

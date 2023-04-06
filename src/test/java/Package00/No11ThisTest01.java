@@ -1,3 +1,5 @@
+package Package00;
+
 public class No11ThisTest01 {
     private int year;
     private int month;
@@ -8,7 +10,7 @@ public class No11ThisTest01 {
     }
 /*
       通过this，可以实现无参构造调用有参构造方法，且不会生成多余的对象
-      （如果使用new No11ThisTest01(year, month, day)的方式来调用会生成多余的对象
+      （如果使用new Package00.No11ThisTest01(year, month, day)的方式来调用会生成多余的对象
 
 
     this可以用在哪里:

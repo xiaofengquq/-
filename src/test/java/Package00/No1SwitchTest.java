@@ -1,10 +1,12 @@
+package Package00;
+
 public class No1SwitchTest {
     public static void main(String[] args) {
         System.out.println(level(50.5));;
     }
 
     public static String level(double score) {
-        //[90-100] A
+        //[90-100] Package00.A
         //[80-90)  B
         //[70-80)  C
         //[60-70)  D
@@ -12,7 +14,7 @@ public class No1SwitchTest {
         switch ((int) (score / 10)) {
             case 10:
             case 9:
-                return "A";
+                return "Package00.A";
             case 8:
                 return "B";
             case 7:

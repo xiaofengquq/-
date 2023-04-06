@@ -1,3 +1,5 @@
+package Package00;
+
 public class No2ForTest {
     public static void main(String[] args) {
         //九九乘法表

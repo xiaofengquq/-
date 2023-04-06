@@ -1,3 +1,5 @@
+package Package00;
+
 public class InterviewQuestions {
 
     //面试题：java语言中凡是没有方法体的方法都是抽象方法

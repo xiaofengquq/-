@@ -14,7 +14,7 @@ public class No1SwitchTest {
         switch ((int) (score / 10)) {
             case 10:
             case 9:
-                return "Package00.A";
+                return "A";
             case 8:
                 return "B";
             case 7:

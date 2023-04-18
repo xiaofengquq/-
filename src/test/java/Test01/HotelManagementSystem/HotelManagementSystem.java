@@ -112,11 +112,16 @@ public class HotelManagementSystem {
         return number;
     }
 
+    /**
+     判断给定字符串是否为整数
+     @param str 待判断的字符串
+     @return 若是整数，返回 true，否则返回 false
+     */
     public static boolean isInteger(String str) {
         try {
-            Integer.parseInt(str);
+            Integer.parseInt(str); // 调用Integer构造方法将字符串解析为整数
             return true;
-        } catch (Exception e) {
+        } catch (Exception e) { // 若出现异常，则说明字符串不是整数
             return false;
         }
     }

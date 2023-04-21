@@ -13,10 +13,7 @@ package Homework;
  * 并通过方法给它初始化speed,size的值并且打印出来。
  * 另外调用加速减速的方法对速度进行改变。
  */
-public class Homework02 {
-}
-
-class Vehicle {
+public class VehicleTest {
     public static void main(String[] args) {
         Vehicle v = new Vehicle(100, 59);
         System.out.println("交通工具的速度为: " + v.speed);
@@ -24,6 +21,9 @@ class Vehicle {
         v.speedup(40);
         v.speedDown(29);
     }
+}
+
+class Vehicle {
 
     public Vehicle(double speed, double size) {
         this.speed = speed;

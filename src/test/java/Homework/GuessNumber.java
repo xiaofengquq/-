@@ -11,7 +11,7 @@ import java.util.Scanner;
  * 等于则提示猜测成功
  */
 
-public class Homework01 {
+public class GuessNumber {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("请输入待猜测的数字: ");

@@ -7,7 +7,7 @@ package Homework;
  * 再为该类定义加addition()、subtraction()、乘multiplication()、除division()等公有实例方法
  * 分别对两个成员变量执行加、减、乘、除的运算。
  */
-public class Homework03 {
+public class Calculator {
     public static void main(String[] args) {
         Number n = new Number(130, 65);
         System.out.println(n.getN1() + " + " + n.getN2() + " = " + n.addition());

@@ -13,7 +13,7 @@ public class BinarySearch {
     //二分法查找
     public static int search(int[] ints, int target) {
         Arrays.sort(ints);
-        //起始索引为0，结束索引为数组长度-1，加起来除以二得到中间索引
+        //起始索引为0，结束索引为数组长度 减一 ，加起来除以二得到中间索引
         int startIndex = 0;
         int endIndex = ints[ints.length - 1];
         while (startIndex <= endIndex) {

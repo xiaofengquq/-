@@ -1,4 +1,4 @@
-package Package00;
+package Package00.HttpRequest;
 
 import java.util.Map;
 
@@ -7,13 +7,13 @@ public class HttpRequestData<T> {
     private Map<String, String> headers;
     private String url;
     private String cookie;
-    private String requestMethod;
+    private RequestMethod requestMethod;
     private Class<T> ReturnFormat;
 
     public HttpRequestData() {
     }
 
-    public HttpRequestData(Map<String, String> params, Map<String, String> headers, String url, String cookie, String requestMethod, Class<T> returnFormat) {
+    public HttpRequestData(Map<String, String> params, Map<String, String> headers, String url, String cookie, RequestMethod requestMethod, Class<T> returnFormat) {
         this.params = params;
         this.headers = headers;
         this.url = url;
@@ -62,11 +62,11 @@ public class HttpRequestData<T> {
         this.cookie = cookie;
     }
 
-    public String getRequestMethod() {
+    public RequestMethod getRequestMethod() {
         return requestMethod;
     }
 
-    public void setRequestMethod(String requestMethod) {
+    public void setRequestMethod(RequestMethod requestMethod) {
         this.requestMethod = requestMethod;
     }
 }

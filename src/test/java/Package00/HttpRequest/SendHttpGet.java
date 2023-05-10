@@ -1,5 +1,7 @@
-package Package00;
+package Package00.HttpRequest;
 
+import Package00.HttpRequest.HttpRequest;
+import Package00.HttpRequest.HttpRequestData;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.Header;
 import org.apache.http.client.methods.CloseableHttpResponse;

@@ -5,12 +5,12 @@ public class IntegerTest01 {
         //面试题
         Integer a = 100;
         Integer b = 100;
+        System.out.println(a == b);//   true
         //双等号不会触发自动拆箱
         //这是因为 Java 中的 Integer 类使用了整数缓存池（Integer Cache）的机制。在这个缓存池中，
         // Java 会预先创建一些 Integer 对象，其值在 -128 到 127 之间。
         // 当创建一个新的 Integer 对象时，如果该对象的值在这个范围内，
         // 则会从缓存池中直接返回对应的 Integer 对象，而不是重新创建一个新的对象。
-        System.out.println(a == b);//   true
         Integer c = 1000;
         Integer d = 1000;
         System.out.println(c == d);//   false

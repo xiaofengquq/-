@@ -21,8 +21,15 @@ public class ExceptionTest05 {
         try {
             //  try尝试
             m1();
+
+            //  以下代码由于m1()报错，跳过
+            System.out.println("这里的代码由于在异常之后，并不会执行");
         } catch (FileNotFoundException f) {
             //  catch是捕捉异常后走的分支
+            //  在catch分支中干什么？
+            //      处理异常
+
+            //try..catch把异常抓住后，这里的代码会继续执行
             System.out.println("文件不存在，可能路径错误，也可能该文件被删除！");
         }
 
@@ -56,5 +63,6 @@ public class ExceptionTest05 {
 //        new FileInputStream("D:\\搜狗高速下载\\Zhuxian-debug-v1.0.0-1-dev-202305171719.apk");
         //  我们采用第一种处理方式：在方法声明的位置上使用throws继续上抛
         new FileInputStream("D:\\搜狗高速下载\\Zhuxian-debug-v1.0.0-1-dev-202305171719.apk");
+        System.out.println("这里的代码由于在异常之后，并不会执行");
     }
 }

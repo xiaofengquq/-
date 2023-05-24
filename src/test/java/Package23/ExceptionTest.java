@@ -6,6 +6,9 @@ package Package23;
  *
  *      什么是异常：程序执行过程中的不正常情况
  *      异常的作用：增强程序的健壮性
+ *      异常分为两种：
+ *          编译时异常
+ *          运行时异常（用非、未来形容的都是运行时异常）
  *
  * 3、以下程序执行，控制台出现了：
  *      Exception in thread "main" java.lang.ArithmeticException: / by zero

@@ -16,6 +16,7 @@ public class ExceptionTest05 {
     //  一般不建议在main方法上使用throws，因为这个异常如果真正发生了，一定会抛给JVM，JVM只能终止程序
     //  异常处理机制的作用就是增强程序的健壮性，也就是异常发生了也不影响程序的执行
     //  一般main方法中的异常建议使用try catch进行捕捉
+
     public static void main(String[] args) {
         System.out.println("main begin");
         try {

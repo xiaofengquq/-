@@ -28,7 +28,7 @@ import java.util.List;
                 答：ArrayList集合。
                 因为往数组末尾添加元素，效率不受影响。
                 另外，检索/查找某个元素的操作比较少
-
+        9、ArrayList集合是非线程安全的。（不是线程安全的集合。）
  */
 public class ArrayListTest {
     public static void main(String[] args) {

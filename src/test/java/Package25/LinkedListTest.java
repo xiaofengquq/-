@@ -1,5 +1,6 @@
 package Package25;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 /*
@@ -25,6 +26,22 @@ public class LinkedListTest {
         list.add("c");
         for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i));
+        }
+
+        //  LinkedList集合有初始化容量吗？
+        //      没有，最初这个链表中没有任何元素，first和last引用都是null
+        //  不管是LinkedList还是ArrayList，以后写代码时不需要关心具体是哪个集合
+        //  因为我们要面向接口编程，调用的方法都是接口中的方法
+
+        //  List list1 = new ArrayList();// 这样写表示底层用了数组
+        List list1 = new LinkedList();//    这样写表示底层用了双向链表
+
+        //  以下这些方法面向的都是接口编程
+        list1.add("123");
+        list1.add("456");
+        list1.add("789");
+        for (int i = 0; i < list1.size(); i++) {
+            System.out.println(list1.get(i));
         }
     }
 }

@@ -1,4 +1,4 @@
-package Package25;
+package Package24;
 
 /*
     单链表
@@ -11,7 +11,7 @@ package Package25;
 /**
  * 链表数据结构的实现类
  */
-public class Link {
+public class Link<E> {
 
     // 头节点
     private Node header = null;
@@ -20,10 +20,10 @@ public class Link {
     /**
      * 向链表中添加元素
      *
-     * @param obj 要添加的元素
+     * @param data 要添加的元素
      */
-    public void add(Object obj) {
-        Node newNode = new Node(obj);
+    public void add(E data) {
+        Node newNode = new Node(data);
         if (header == null) {
             header = newNode;
         } else {
@@ -39,12 +39,12 @@ public class Link {
     /**
      * 删除链表中的元素
      *
-     * @param obj 要删除的元素
+     * @param data 要删除的元素
      * @return true：删除成功，false：删除失败
      */
-    public boolean remove(Object obj) {
-        Node current = find(obj);
-        Node previous = findPrevious(obj);
+    public boolean remove(E data) {
+        Node current = find(data);
+        Node previous = findPrevious(data);
         if (header == null || current == null) {
             return false;
         } else if (previous == null) {
@@ -61,16 +61,16 @@ public class Link {
     /**
      * 修改链表中的元素
      *
-     * @param oldObj 要修改的元素
-     * @param newObj 修改后的元素
+     * @param oldData 要修改的元素
+     * @param newData 修改后的元素
      * @return true：修改成功，false：修改失败
      */
-    public boolean modify(Object oldObj, Object newObj) {
-        Node current = find(oldObj);
+    public boolean modify(E oldData, E newData) {
+        Node current = find(oldData);
         if (current == null) {
             return false;
         } else {
-            current.element = newObj;
+            current.element = newData;
             return true;
         }
     }
@@ -78,13 +78,13 @@ public class Link {
     /**
      * 查找链表中的元素
      *
-     * @param obj 要查找的元素
+     * @param data 要查找的元素
      * @return 找到的元素节点，若未找到则返回null
      */
-    public Node find(Object obj) {
+    public Node find(E data) {
         Node temp = header;
         while (temp != null) {
-            if (temp.element.equals(obj)) {
+            if (temp.element.equals(data)) {
                 return temp;
             }
             temp = temp.next;
@@ -95,14 +95,14 @@ public class Link {
     /**
      * 查找链表中某个元素的上一个节点
      *
-     * @param obj 要查找的元素
+     * @param data 要查找的元素
      * @return 上一个节点，若未找到或为头节点则返回null
      */
-    public Node findPrevious(Object obj) {
+    public Node findPrevious(E data) {
         Node previous = null;
         Node temp = header;
         while (temp != null) {
-            if (temp.element.equals(obj)) {
+            if (temp.element.equals(data)) {
                 return previous;
             }
             previous = temp;

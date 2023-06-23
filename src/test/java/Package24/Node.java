@@ -1,4 +1,4 @@
-package Package25;
+package Package24;
 /*
     单链表中的节点
         节点是单向链表中的基本单元

@@ -1,8 +1,8 @@
-package Package25;
+package Package24;
 
 public class LinkTest {
     public static void main(String[] args) {
-        Link link = new Link();
+        Link<Object> link = new Link();
         link.add(100);//    100
         link.add(200);//    100 200
         link.add(300);//    100 200 300

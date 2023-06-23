@@ -1,4 +1,4 @@
-package Package25;
+package Package24;
 
 import java.util.*;
 

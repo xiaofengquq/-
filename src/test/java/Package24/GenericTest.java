@@ -1,4 +1,4 @@
-package Package26;
+package Package24;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -10,7 +10,11 @@ import java.util.List;
     2、泛型这种语法机制，只会在程序编译阶段起作用，只是给编译器参考的。（运行阶段泛型没用！）
     3、使用泛型机制的好处：
         第一：集合存储的元素类型统一了
-        第二：
+        第二：从集合中取出来的元素类型是泛型指定的类型，不需要进行大量的“向下转型”！
+    4、泛型的缺点是什么？
+        泛型会导致集合中存储元素缺乏多样性
+        但是，在大多数业务中，集合中元素类型都是统一的。
+        因此这种泛型特性被大家所认可
  */
 public class GenericTest {
     public static void main(String[] args) {

@@ -1,5 +1,7 @@
 package Package24.Map;
 
+import java.util.Objects;
+
 public class Teacher {
     String name;
 
@@ -19,29 +21,16 @@ public class Teacher {
     }
 
     //  重写equals() 和 hashCode()方法
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Teacher teacher = (Teacher) o;
+        return Objects.equals(name, teacher.name);
+    }
 
     @Override
     public int hashCode() {
-        return 1;
-    }
-
-
-//    public boolean equals(Student s) {
-//        if (this.name == null) {
-//            return s.name == null;
-//        } else
-//            return this.name.equals(s.name);
-//    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj instanceof Teacher) {
-            if (this.name == null) {
-                return ((Teacher) obj).name == null;
-            } else
-                return this.name.equals(((Teacher) obj).name);
-        } else {
-            return false;
-        }
+        return Objects.hash(name);
     }
 }

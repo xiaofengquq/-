@@ -22,6 +22,8 @@ public class MapTest01 {
             System.out.println(s + " = " + map.get(s));
         }
 
+        System.out.println("---------------------------");
+
         //  第二种方式：Set<Map.Entry<K, V>> entrySet();
         //  把Map集合直接转换成Set集合，集合中元素的类型为Map.Entry<K, V>
         //  Map.Entry<K, V>提供了get方法

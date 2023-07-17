@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /*
-    向Map集合中存取元素，都是先调用key的hashCode()方法，然后再调用equals()方法
+    1、向Map集合中存取元素，都是先调用key的hashCode()方法，然后再调用equals()方法
     equals()方法有可能调用，也有可能不调用
 
     拿put(k, v)举例，什么时候equals()方法不会调用？
@@ -14,6 +14,19 @@ import java.util.Map;
 
     拿get(k)举例，什么时候equals()方法不会调用？
         如果哈希算法转换成的数组下标，该下标位置单向链表为空，那么此时不需要调用equals方法
+
+    2、注意：如果一个类的equals()方法重写了，那么hashCode()方法必须重写。
+        并且equals()方法返回true表示两个对象相同，在同一个单向链表上比较。
+        那么对于同一个单向链表上的节点来说，他们的哈希值都是相同的。
+        所以hashCode()方法返回值也应该相同
+    3、hashCode()方法和equals()方法不用研究了，直接用IDEA生成，但是需要同时生成
+
+    4、终极结论：
+        放在HashMap集合key部分、以及放在HashSet集合中的元素，需要同时重写equals()方法和hashCode()方法
+
+    5、对于哈希表数据结构而言：
+        如果o1和o2的hash值相同，一定是放在同一个单向链表（桶）上。
+        如果o1和o2的hash不同，由于哈希算法执行结束后的数组下标可能会相同，因此会发生“哈希碰撞”
  */
 public class HashMapTest01 {
     public static void main(String[] args) {
@@ -41,8 +54,8 @@ public class HashMapTest01 {
         map2.put(t1, "1");
         map2.put(t2, "2");
 
-        System.out.println("t1的hashCode = " + t1.hashCode());
-        System.out.println("t2的hashCode = " + t2.hashCode());
+        System.out.println("t1的hashCode = " + t1.hashCode());// 重写hashCode()后   769726
+        System.out.println("t2的hashCode = " + t2.hashCode());// 769726
 
         for (Map.Entry<Teacher, String> entry : map2.entrySet()) {
             System.out.println("key: " + entry.getKey() + ", value: " + entry.getValue());

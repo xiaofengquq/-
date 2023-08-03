@@ -8,7 +8,11 @@ import java.util.TreeSet;
         以下程序中，对于Person类型来说，无法排序，因为没有指定Person对象之间的比较规则
 
         报错：
-            Package24.Collection.Set.Person cannot be cast to java.lang.Comparable
+            Exception in thread "main" java.lang.ClassCastException:
+                Package24.Collection.Set.Person cannot be cast to java.lang.Comparable
+
+        出现这个异常的原因是：
+            Person没有实现java.lang.Comparable接口
  */
 public class TreeSetTest02 {
     public static void main(String[] args) {

@@ -24,10 +24,10 @@ public class ExceptionTest08 {
             e.printStackTrace();
             /*
                 java.io.FileNotFoundException: 123 (系统找不到指定的文件。)
-	                at java.io.FileInputStream.open0(Native Method)
-                    at java.io.FileInputStream.open(FileInputStream.java:195)
-                    at java.io.FileInputStream.<init>(FileInputStream.java:138)
-                    at java.io.FileInputStream.<init>(FileInputStream.java:93)
+	                at java.io.FileInputStreamTest.open0(Native Method)
+                    at java.io.FileInputStreamTest.open(FileInputStreamTest.java:195)
+                    at java.io.FileInputStreamTest.<init>(FileInputStreamTest.java:138)
+                    at java.io.FileInputStreamTest.<init>(FileInputStreamTest.java:93)
                     at Package23.ExceptionTest08.m3(ExceptionTest08.java:31)
                     at Package23.ExceptionTest08.m2(ExceptionTest08.java:27)
                     at Package23.ExceptionTest08.m1(ExceptionTest08.java:23)

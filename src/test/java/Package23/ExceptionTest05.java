@@ -61,7 +61,7 @@ public class ExceptionTest05 {
                 2、这个构造方法的声明位置上有：throws FileNotFoundException
                 3、通过类的继承结构可以得知FileNotFoundException是一个编译时异常
          */
-//        new FileInputStream("D:\\搜狗高速下载\\Zhuxian-debug-v1.0.0-1-dev-202305171719.apk");
+//        new FileInputStreamTest("D:\\搜狗高速下载\\Zhuxian-debug-v1.0.0-1-dev-202305171719.apk");
         //  我们采用第一种处理方式：在方法声明的位置上使用throws继续上抛
         new FileInputStream("D:\\搜狗高速下载\\Zhuxian-debug-v1.0.0-1-dev-202305171719.apk");
         System.out.println("这里的代码由于在异常之后，并不会执行");

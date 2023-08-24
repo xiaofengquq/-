@@ -10,13 +10,21 @@ import java.io.IOException;
         2、字节的方式，完成输入及读取的操作（硬盘 ——> 内存）
  */
 public class FileInputStreamTest {
+    /*
+        分析以下程序的缺点：
+            一次读取一个字节byte，这样内存和硬盘交互太频繁，
+            基本上时间/资源都耗费在交互上面了
+        需要使用一次读取多个字节的方式
+     */
     public static void main(String[] args) {
         FileInputStream f = null;
         try {
             //  创建文件字节输入流对象
             f = new FileInputStream("E:\\src\\-\\yzw"); //  abcdefg
-            System.out.println(f.read());   // a == 97，read()方法返回的是字节本身
-            System.out.println(f.read());   // b == 98
+            int byteRead;
+            while ((byteRead = f.read()) != -1) {
+                System.out.println(byteRead);   // a == 97，read()方法返回的是字节本身
+            }
         } catch (IOException e) {
             e.printStackTrace();
         } finally {

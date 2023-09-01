@@ -11,7 +11,7 @@ import java.io.IOException;
  */
 public class BufferedReaderTest {
     public static void main(String[] args) {
-        try (FileReader reader = new FileReader("E:\\src\\-\\src\\test\\java\\Package25\\Buffer\\tempFile2.txt");
+        try (FileReader reader = new FileReader("src/test/java/Package25/Buffer/tempFile2.txt");
 
              // 当一个流的构造方法中需要一个流时，被传进来的流叫做：节点流
              // 外部负责包装的流，叫做 包装流，也叫：处理流

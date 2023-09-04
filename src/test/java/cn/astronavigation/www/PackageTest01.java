@@ -20,7 +20,7 @@ package cn.astronavigation.www;
  *      5、一个包对应一个目录。
  *
  *      6、使用了package机制制之后，应该怎么编译?怎么运行呢?
- *          -使用了package机制之后，类名不再是Test01了，类名是: cn.astronavigation.www.Test01
+ *          -使用了package机制之后，类名不再是Test01了，类名是: cn.astronavigation.www.PackageTest01
  * */
 public class PackageTest01 {
     public static void main(String[] args) {

@@ -1,37 +1,28 @@
 package Homework.DirectoryCopy;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 
 /*
     要求：
         将整个目录及下面的内容全部拷贝到另一个目录下
  */
 public class DirectoryCopy {
-    public static void directoryCopy(String filePath) {
-        if (filePath == null || filePath.isEmpty()) {
-            throw new DirectoryCopyException("目标路径为空");
-        }
-        try {
-            File f = new File(filePath);
-            File f1 = new File("src/test/java/Homework/DirectoryCopy/" + f.getName());
-            f1.mkdir();
-            File[] files = f.listFiles();
-            for (File file : files) {
-                try (FileInputStream fis = new FileInputStream(file.getAbsoluteFile());
-                     FileOutputStream fos = new FileOutputStream("src/test/java/Homework/DirectoryCopy/" + f1.getName() + "/" + file.getName());) {
-                    int readCount;
-                    byte[] bytes = new byte[1024];
-                    while ((readCount = fis.read(bytes)) != -1) {
-                        fos.write(bytes, 0, readCount);
+    public static void printAllSubPath(String sourcePath) {
+        File sourceFile = new File(sourcePath);
+        if (sourceFile.exists() && sourceFile.isDirectory()) {
+            File[] files = sourceFile.listFiles();
+            if (files != null) {
+                for (File file : files) {
+                    if (file.isDirectory()) {
+                        System.out.println("目录：" + file);
+                        printAllSubPath(file.getAbsolutePath());
+                    } else {
+                        System.out.println("文件：" + file);
                     }
-
-                    fos.flush();
                 }
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } else {
+            System.out.println("源目录不存在/不是一个目录");
         }
     }
 }

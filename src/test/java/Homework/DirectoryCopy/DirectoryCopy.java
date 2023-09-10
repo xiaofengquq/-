@@ -1,6 +1,9 @@
 package Homework.DirectoryCopy;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 import static Homework.DirectoryCopy.isEmptyDirectory.*;
 
@@ -30,21 +33,36 @@ public class DirectoryCopy {
             if (files != null) {
                 for (File file : files) {
                     if (file.isDirectory() && isEmptyDirectory(file) == notEmpty) {
-                        System.out.println("目录：" + file);
+//                        System.out.println("目录：" + file);
                         // 递归调用以处理子目录
                         directoryCopy(srcPath, file.getAbsolutePath(), desPath);
                     } else if (isEmptyDirectory(file) == isEmpty) {
-                        System.out.println("空文件夹" + file.getAbsolutePath());
-                    } else {
-                        // 处理文件拷贝
                         File resultFile = new File(desPath, getMidPath(srcPath, file.getAbsolutePath()));
-//                        try (FileInputStream fis = new FileInputStream(file.getAbsoluteFile());
-//                             FileOutputStream fos = new FileOutputStream(resultFile.getAbsoluteFile())) {
-
-//                        } catch (IOException e) {
-//                            e.printStackTrace();
-//                        }
-                        System.out.println("最终目标路径：" + resultFile.getAbsolutePath());
+                        //  如果是空文件夹则仅创建文件夹
+                        if (!resultFile.exists()) {
+                            //  mkdirs()会创建目标路径文件夹及其所有父路径
+                            resultFile.mkdirs();
+                        }
+//                        System.out.println("空文件夹" + file.getAbsolutePath());
+                    } else {
+                        File resultFile = new File(desPath, getMidPath(srcPath, file.getAbsolutePath()));
+                        //  获取最终复制文件的父路径并创建文件夹
+                        File parentDirectory = new File(resultFile.getParent());
+                        if (!parentDirectory.exists()) {
+                            parentDirectory.mkdirs();
+                        }
+                        try (FileInputStream fis = new FileInputStream(file.getAbsoluteFile());
+                             FileOutputStream fos = new FileOutputStream(resultFile.getAbsoluteFile())) {
+                            byte[] bytes = new byte[1024];
+                            int readCount;
+                            while ((readCount = fis.read(bytes)) != -1) {
+                                fos.write(bytes, 0, readCount);
+                            }
+                            fos.flush();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+//                        System.out.println("最终目标路径：" + resultFile.getAbsolutePath());
                     }
                 }
             }

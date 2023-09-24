@@ -13,14 +13,14 @@ import java.util.List;
  */
 public class ObjectOutputStreamTest01 {
     public static void main(String[] args) {
-        Student student = new Student(100, "小风");
+        StudentSerializable studentSerializable = new StudentSerializable(100, "小风");
         Car car = new Car("蓝色", 120, "啦啦啦");
         try (FileOutputStream fos = new FileOutputStream("src/test/java/Package25/ObjectStream/objectList");
              ObjectOutputStream oos = new ObjectOutputStream(fos);
              FileInputStream fis = new FileInputStream("src/test/java/Package25/ObjectStream/objectList");
              ObjectInputStream ois = new ObjectInputStream(fis)) {
             List<Object> objects = new ArrayList<>();
-            objects.add(student);
+            objects.add(studentSerializable);
             objects.add(car);
             oos.writeObject(objects);
             System.out.println(ois.readObject());

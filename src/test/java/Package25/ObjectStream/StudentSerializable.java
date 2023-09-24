@@ -2,7 +2,7 @@ package Package25.ObjectStream;
 
 import java.io.Serializable;
 
-public class Student implements Serializable {
+public class StudentSerializable implements Serializable {
 
     //  java虚拟机看到Serializable接口后，会自动生成一个序列化版本号（最终结论，手动写序列化版本号）
 
@@ -24,10 +24,10 @@ public class Student implements Serializable {
                 ']';
     }
 
-    public Student() {
+    public StudentSerializable() {
     }
 
-    public Student(int age, String name) {
+    public StudentSerializable(int age, String name) {
         this.age = age;
         this.name = name;
     }

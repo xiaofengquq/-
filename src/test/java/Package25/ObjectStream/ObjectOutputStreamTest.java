@@ -35,10 +35,10 @@ import java.io.ObjectOutputStream;
  */
 public class ObjectOutputStreamTest {
     public static void main(String[] args) {
-        Student student = new Student(100, "小风");
+        StudentSerializable studentSerializable = new StudentSerializable(100, "小风");
         try (FileOutputStream fos = new FileOutputStream("src/test/java/Package25/ObjectStream/student");
              ObjectOutputStream oos = new ObjectOutputStream(fos)) {
-            oos.writeObject(student);
+            oos.writeObject(studentSerializable);
 
             oos.flush();
         } catch (Exception e) {

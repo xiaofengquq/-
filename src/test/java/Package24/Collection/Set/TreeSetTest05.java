@@ -9,7 +9,7 @@ import java.util.TreeSet;
     让TreeSet集合中元素可排序的第二种方式：使用比较器的方式
 
     Comparator和Comparable怎么选择？
-        当比较规则不会发生改变，或者比较规则之后一个的时候，建议实现 Comparable 接口
+        当比较规则不会发生改变，或者比较规则之后一个的时候，建议实现 Comparator 接口
         当比较规则有多个，并且需要多个比较规则之间频繁切换，建议实现 Comparable 接口
  */
 public class TreeSetTest05 {

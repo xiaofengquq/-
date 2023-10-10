@@ -37,7 +37,7 @@ public class StringConstructionMethod {
 
         char[] chars1 = {'1', '2', '3', '4', '5'};
         //这个构造方法的 目的 是将char数组的一部分转化成字符串
-        String s5 = new String(chars, 1, 2);
+        String s5 = new String(chars1, 1, 2);
         System.out.println("s5: " + s5);//输出结果：23
     }
 }

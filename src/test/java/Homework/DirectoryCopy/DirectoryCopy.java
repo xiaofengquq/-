@@ -67,7 +67,7 @@ public class DirectoryCopy {
                 }
             }
         } else {
-            System.out.println("源目录不存在/不是一个目录");
+            throw new DirectoryCopyException("源目录不存在/不是一个目录");
         }
     }
 

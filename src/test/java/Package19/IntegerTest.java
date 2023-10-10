@@ -6,7 +6,7 @@ public class IntegerTest {
         2、思考：为什么需要再提供8种包装类呢？
      */
     public static void main(String[] args) {
-        //  如果有一种需求，需要在doSome()中传递int，但是由于int是基本数据类型，因此无法传递
+        //  如果有一种需求，需要在doSome()中传递int，doSome()方法传参为Object，由于int是基本数据类型，因此无法传递
         //  这样就需要传递int类型的包装类型进去
         Integer integer = 100;
         doSome(integer);

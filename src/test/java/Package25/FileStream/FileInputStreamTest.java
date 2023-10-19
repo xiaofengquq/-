@@ -19,7 +19,7 @@ public class FileInputStreamTest {
         FileInputStream f = null;
         try {
             //  创建文件字节输入流对象
-            f = new FileInputStream("yzw"); //  abcdefg
+            f = new FileInputStream("yzw"); //  abcdefg，文件在根目录
             int byteRead;
             while ((byteRead = f.read()) != -1) {
                 System.out.println(byteRead);   // a == 97，read()方法返回的是字节本身

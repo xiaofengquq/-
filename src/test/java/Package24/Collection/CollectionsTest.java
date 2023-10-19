@@ -22,6 +22,10 @@ public class CollectionsTest {
         //  将集合进行排序
         //  使用sort方法的前提，需要传参实现了Comparable接口
         //  public static <T extends Comparable<? super T>> void sort(List<T> list)
+        //  由于String类实现了Comparable接口
+        //      public final class String
+        //          implements java.io.Serializable, Comparable<String>, CharSequence
+        //  因此Collections.sort()可以传递List<String>当做参数来排序
         Collections.sort(list);
         System.out.println("已排序list：" + list);
     }

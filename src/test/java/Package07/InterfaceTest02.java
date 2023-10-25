@@ -2,7 +2,7 @@ package Package07;
 
 public class InterfaceTest02 {
     public static void main(String[] args) {
-        //使用多态，面向接口变成，实际底层还是MyMathImp1类
+        //  使用多态，面向接口编程，实际底层还是MyMathImp1类
         MyMath myMathImp1 = new MyMathImp1();
         System.out.println(myMathImp1.sum(1, 2));;
         System.out.println(myMathImp1.sub(1, 2));;

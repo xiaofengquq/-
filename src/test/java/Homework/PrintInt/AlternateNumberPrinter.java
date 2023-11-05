@@ -10,7 +10,7 @@ public class AlternateNumberPrinter {
         SubThread st = new SubThread(ints, max);
         st.setName("SubThread");
         st.start();
-        for (int i = 0; i < max; i++) {
+        for (int i = 0; i < max; i += 2) {
             synchronized (st) {
                 System.out.println(Thread.currentThread().getName() + "打印: " + ints[i]);
                 // 通知子线程打印
@@ -18,9 +18,7 @@ public class AlternateNumberPrinter {
 
                 // 等待子线程完成打印
                 try {
-                    if (i < max - 1) {
-                        st.wait();
-                    }
+                    st.wait();
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
@@ -41,7 +39,7 @@ class SubThread extends Thread {
     @Override
     public void run() {
         synchronized (this) {
-            for (int i = 0; i < max; i++) {
+            for (int i = 1; i < max; i += 2) {
                 System.out.println(Thread.currentThread().getName() + "打印" + ints[i]);
                 // 通知主线程打印
                 this.notify();

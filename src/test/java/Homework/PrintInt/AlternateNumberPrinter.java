@@ -10,15 +10,15 @@ public class AlternateNumberPrinter {
         SubThread st = new SubThread(ints, max);
         st.setName("SubThread");
         st.start();
-        for (int i = 0; i < max; i += 2) {
-            synchronized (st) {
-                System.out.println(Thread.currentThread().getName() + "打印: " + ints[i]);
+        for (int i = 1; i < max; i += 2) {
+            synchronized (SubThread.lock) {
+                System.out.println(Thread.currentThread().getName() + "打印: " + ints[i - 1]);
                 // 通知子线程打印
-                st.notify();
+                SubThread.lock.notify();
 
                 // 等待子线程完成打印
                 try {
-                    st.wait();
+                    SubThread.lock.wait();
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
@@ -30,6 +30,7 @@ public class AlternateNumberPrinter {
 class SubThread extends Thread {
     int[] ints;
     int max;
+    final static Object lock = new Object();
 
     public SubThread(int[] ints, int max) {
         this.ints = ints;
@@ -38,16 +39,16 @@ class SubThread extends Thread {
 
     @Override
     public void run() {
-        synchronized (this) {
-            for (int i = 1; i < max; i += 2) {
-                System.out.println(Thread.currentThread().getName() + "打印" + ints[i]);
+        synchronized (lock) {
+            for (int i = 2; i <= max; i += 2) {
+                System.out.println(Thread.currentThread().getName() + "打印" + ints[i - 1]);
                 // 通知主线程打印
-                this.notify();
+                lock.notify();
 
                 // 等待主线程完成打印
                 try {
-                    if (i < max - 1) {
-                        this.wait();
+                    if (i != max) {
+                        lock.wait();
                     }
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);

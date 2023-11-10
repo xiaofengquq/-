@@ -2,7 +2,6 @@ package Homework.ProducerCustomerTest;
 
 import java.util.LinkedList;
 import java.util.concurrent.FutureTask;
-
 public class ProducerCustomerTest {
     private static final int CAPACITY = 10;
 

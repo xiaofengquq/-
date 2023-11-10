@@ -2,59 +2,64 @@ package Homework.PrintInt;
 
 public class AlternateNumberPrinter {
     public static void main(String[] args) {
-        int max = 100;
-        int[] ints = new int[max];
-        for (int i = 0; i < max; i++) {
-            ints[i] = i + 1;
-        }
-        SubThread st = new SubThread(ints, max);
-        st.setName("SubThread");
-        st.start();
-        for (int i = 1; i < max; i += 2) {
-            synchronized (SubThread.lock) {
-                System.out.println(Thread.currentThread().getName() + "打印: " + ints[i - 1]);
-                // 通知子线程打印
-                SubThread.lock.notify();
+        /*
+            在Java中，基本数据类型（如int）是值类型，而不是引用类型。
+                当在一个线程中对基本数据类型的值进行修改时，其他线程无法感知到这个变化，因为它们只是复制了这个值。
 
-                // 等待子线程完成打印
-                try {
-                    SubThread.lock.wait();
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        }
-    }
-}
+            在并发编程中，为了实现线程间的安全通信，通常需要共享一个可变对象，而不是一个基本数据类型。
+            Integer虽然不是一个值，但它是一个不可变的类，因此不能直接修改其值。
+            为了在多线程环境中实现共享的可变状态，可以使用数组或其他可变对象。
+         */
+        final Integer[] integers = {1};  //  以上为使用Integer[]的原因
+        final Object lock = new Object();
+        Thread t1 = new Thread(new Runnable() {
 
-class SubThread extends Thread {
-    int[] ints;
-    int max;
-    final static Object lock = new Object();
-
-    public SubThread(int[] ints, int max) {
-        this.ints = ints;
-        this.max = max;
-    }
-
-    @Override
-    public void run() {
-        synchronized (lock) {
-            for (int i = 2; i <= max; i += 2) {
-                System.out.println(Thread.currentThread().getName() + "打印" + ints[i - 1]);
-                // 通知主线程打印
-                lock.notify();
-
-                // 等待主线程完成打印
-                try {
-                    if (i != max) {
-                        lock.wait();
+            @Override
+            public void run() {
+                while (integers[0] <= 99) {
+                    synchronized (lock) {
+                        System.out.println(Thread.currentThread().getName() + " ---> " + integers[0]++);
+                        lock.notify();
+                        if (integers[0] < 100) {
+                            try {
+                                lock.wait();
+                            } catch (InterruptedException e) {
+                                throw new RuntimeException(e);
+                            }
+                        }
                     }
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
                 }
             }
-        }
+
+        });
+        t1.setName("奇数线程");
+
+        Thread t2 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (integers[0] <= 100) {
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                    synchronized (lock) {
+                        System.out.println(Thread.currentThread().getName() + " ---> " + integers[0]++);
+                        lock.notify();
+                        if (integers[0] < 100) {
+                            try {
+                                lock.wait();
+                            } catch (InterruptedException e) {
+                                throw new RuntimeException(e);
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        t2.setName("偶数线程");
+
+        t1.start();
+        t2.start();
     }
 }
-

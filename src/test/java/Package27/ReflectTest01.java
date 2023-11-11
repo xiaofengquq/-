@@ -3,9 +3,9 @@ package Package27;
 /*
     需要操作一个类的字节码，需要先获取到这个类的字节码，怎么获取java.lang.Class实例？
         有三种方式
-            1、public static Class<?> forName(String className)
-                Class.forName()
-            2、public final native Class<?> getClass();
+            第一种：Class c = Class.forName("带类名的完整包名");
+            第二种：Class c = 对象.getClass();
+            第三种：Class c = 任何类型.class;
  */
 public class ReflectTest01 {
     public static void main(String[] args) {
@@ -30,9 +30,15 @@ public class ReflectTest01 {
             java中任何一个对象，都有一个方法，getClass()
          */
 
-        Class s = "s".getClass();   //  s代表String.class字节码文件，或者说s代表String类型
+        Class c4 = "s".getClass();   //  s代表String.class字节码文件，或者说s代表String类型
 
         System.out.println("用getClass获取字节码文件 对比 Class.forName()获取字节码文件：" +
-                (c1 == s));    //  true，因为字节码文件只会装载一份
+                (c1 == c4));    //  true，因为字节码文件只会装载一份
+
+        /*
+            java中任何一个类型，包括基本数据类型，都有.class属性
+         */
+        Class c5 = String.class;
+        System.out.println(c5 == c1);   //  c5同样代表String类的字节码文件
     }
 }

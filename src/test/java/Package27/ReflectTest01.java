@@ -9,9 +9,9 @@ package Package27;
  */
 public class ReflectTest01 {
     public static void main(String[] args) {
-        Class c1;
-        Class c2;
-        Class c3;
+        Class<?> c1;
+        Class<?> c2;
+        Class<?> c3;
         /*
             1、静态方法
             2、方法的参数是一个字符串
@@ -30,7 +30,7 @@ public class ReflectTest01 {
             java中任何一个对象，都有一个方法，getClass()
          */
 
-        Class c4 = "s".getClass();   //  s代表String.class字节码文件，或者说s代表String类型
+        Class<?> c4 = "s".getClass();   //  s代表String.class字节码文件，或者说s代表String类型
 
         System.out.println("用getClass获取字节码文件 对比 Class.forName()获取字节码文件：" +
                 (c1 == c4));    //  true，因为字节码文件只会装载一份
@@ -38,7 +38,7 @@ public class ReflectTest01 {
         /*
             java中任何一个类型，包括基本数据类型，都有.class属性
          */
-        Class c5 = String.class;
+        Class<?> c5 = String.class;
         System.out.println(c5 == c1);   //  c5同样代表String类的字节码文件
     }
 }

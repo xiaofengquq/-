@@ -20,7 +20,7 @@ public class ReflectTest03 {
             System.out.println("从文件中读取到的className ---> " + className);
 
             //  通过反射机制实例化对象
-            Class c = Class.forName(className);
+            Class<?> c = Class.forName(className);
             Object obj = c.newInstance();
             System.out.println(obj);
         } catch (IOException | ClassNotFoundException | InstantiationException | IllegalAccessException e) {

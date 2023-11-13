@@ -9,9 +9,9 @@ public class ReflectTest02 {
     public static void main(String[] args) {
         User u = new User();
         //  通过反射机制，获取Class，通过Class来实例化对象
-        Class c1 = User.class;
-        Class c2 = u.getClass();
-        Class c3;
+        Class<?> c1 = User.class;
+        Class<?> c2 = u.getClass();
+        Class<?> c3;
         try {
             c3 = Class.forName("src/test/java/Package27/User/User.java");
         } catch (ClassNotFoundException e) {
